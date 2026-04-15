@@ -24,7 +24,7 @@ The datasets for this projects were obtained from the [SNAP](https://snap.stanfo
 
 Those datasets were modified to add the information regarding the source $S$ node (Line 2) and node weight for the Linear Threshold model (Line 3).
 
-The $S$ set for each instance was created using the [MPIF project, by Lozano-Osorio et al.](https://doi.org/10.1007/s12652-021-03510-4) to obtain the 100 most influential nodes in each graph. These are the instances used in the article.
+The $S$ set for each instance was created using the [SNIMP project, by Lozano-Osorio et al.](https://doi.org/10.1007/s12652-021-03510-4) to obtain the 100 most influential nodes in each graph. These are the instances used in the article.
 
 Additionally, to compute the solution using the PageRank greedy criteria, `.pagerank` files were created to store the node values.
 
