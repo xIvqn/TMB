@@ -1,4 +1,4 @@
-![Citation Badge](https://api.juleskreuer.eu/citation-badge.php?doi=YOURDOI)
+![Citation Badge](https://api.juleskreuer.eu/citation-badge.php?doi=10.1016/j.asoc.2026.115201)
 ![GitHub last commit](https://img.shields.io/github/last-commit/xIvqn/TMB) 
 ![GitHub Repo stars](https://img.shields.io/github/stars/xIvqn/TMB)
 
@@ -6,11 +6,10 @@
 
 The research on Social Network Analysis has exponentially grown in the last decades due to the relevance of social networks in the society. Although most of the works have been focused on the maximization of influence, the spread of misinformation and its impact in relevant aspects of the society such as politics or economy, among others, have attracted the attention of both practitioners and the scientific community. This work is focused on the Targeted Misinformation Blocking Problem (TMB), whose aim is to minimize the number of nodes required to reduce the spread of misinformation through a social network. It is considered that if the information is spread under a certain threshold, then it would not have effect on the network. Therefore, the objective is to find a subset of blocking nodes that guarantee that the spread of information is below that threshold. To that end, a Scalable GRASP algorithm is proposed, being able to deal with medium and large scale networks in reasonable computing time. The results obtained are compared with the best method found in the literature, Scalable TMB, which generates a set of trees to simulate the influence spread and identify the most promising nodes. Experimental results show that the proposed algorithm is able to outperform the state of the art when considering two of the most extended diffusion models. Additionally, the scalability of the proposal is proven, been able to provide high-quality solutions even in those instances in which previous algorithm are not able to generate a feasible one. Those results, supported by non-parametric statistical tests, indicates that the proposed algorithm is a competitive method for solving the TMB.
 
-- Journal: XXX
-- Impact Factor: XXX
-- Paper link: XXX
-- Area: XXX
-- Quartil: XXX
+- Paper link: [https://doi.org/10.1007/s12652-021-03510-4](https://doi.org/10.1007/s12652-021-03510-4)
+- Journal: Applied Soft Computing
+- Impact Factor: 6.6
+- Quartil (2024): Q1 (35/204) - Computer Science, Artificial Intelligence | Q1 (24/177) - Computer Science, Interdiciplinary Applications 
 
 ## Datasets
 
@@ -25,12 +24,9 @@ The datasets for this projects were obtained from the [SNAP](https://snap.stanfo
 
 Those datasets were modified to add the information regarding the source $S$ node (Line 2) and node weight for the Linear Threshold model (Line 3).
 
-For each instance, 2 sub-instances were created depending on how the $S$ set was created. This could be:
+The $S$ set for each instance was created using the [MPIF project, by Lozano-Osorio et al.](https://doi.org/10.1007/s12652-021-03510-4) to obtain the 100 most influential nodes in each graph. These are the instances used in the article.
 
-* `_RANDOM`: $S$ created randomly using a prython script to fetch random nodes from the graph.
-* `_MOST`: $S$ created using the [MPIF project, by Lozano-Osorio et al.](https://doi.org/10.1111/itor.13468) to get the 100 most influential nodes in each graph. Those are the ones used in the article.
-
-Also, to compute the solution using the pagerank greedy criteria, `.pagerank` files were created to store the nodes values.
+Additionally, to compute the solution using the PageRank greedy criteria, `.pagerank` files were created to store the node values.
 
 ## Repository contents
 
@@ -68,3 +64,38 @@ Apart form the `results.xlsx` file, the complete results detailing the best exec
 - Execution time (s): The execution time measured in seconds consumed by the algorithm to obtain the solution.
 - Execution time: The time consumed formated in "[DAYS]d [HOURS]:[MINUTES]:[SECONDS].[MILLIS]" .
 - Chosen nodes: The IDs of the nodes in the graph added to the dominance set separated by white spaces.
+
+## Cite
+
+Please cite our paper if you use it in your own work:
+
+Bibtext
+```bib
+@article{Penedo2026,
+  title = {A scalable GRASP algorithm for the targeted misinformation blocking problem},
+  journal = {Applied Soft Computing},
+  volume = {197},
+  pages = {115201},
+  year = {2026},
+  issn = {1568-4946},
+  doi = {https://doi.org/10.1016/j.asoc.2026.115201},
+  url = {https://www.sciencedirect.com/science/article/pii/S1568494626006496},
+  author = {Iván Penedo and Isaac Lozano-Osorio and Jesús Sánchez-Oro},
+  keywords = {Social networks, Influence minimization, Blocking set, Combinatorial optimization, Metaheuristics},
+}
+```
+
+MDPI and ACS Style
+```
+Penedo, I.; Lozano-Osorio, I.; Sánchez-Oro, J. A scalable GRASP algorithm for the targeted misinformation blocking problem. Applied Soft Computing, 2026, 197, 115201. https://doi.org/10.1016/j.asoc.2026.115201.
+```
+
+AMA Style
+```
+Penedo I, Lozano-Osorio I, Sánchez-Oro J. A scalable GRASP algorithm for the targeted misinformation blocking problem. Applied Soft Computing. 2026;197:115201. doi:10.1016/j.asoc.2026.115201.
+```
+
+Chicago/Turabian Style
+```
+Penedo, Iván, Isaac Lozano-Osorio, and Jesús Sánchez-Oro. 2026. "A Scalable GRASP Algorithm for the Targeted Misinformation Blocking Problem." Applied Soft Computing 197: 115201. https://doi.org/10.1016/j.asoc.2026.115201.
+```
