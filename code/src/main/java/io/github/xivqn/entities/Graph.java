@@ -28,11 +28,12 @@ public class Graph implements Serializable {
     protected final HashMap<Integer, HashSet<Integer>> readEdgesIn;
     protected final HashMap<Integer, HashSet<Integer>> readEdgesOut;
 
-    private transient Comparator<Integer> adjacentsOrderedComparator =
-            Comparator.comparingInt(this::degreeOutOf).reversed().thenComparingInt(x -> x);
+    private transient Comparator<Integer> adjacentsOrderedComparator = Comparator.comparingInt(this::degreeOutOf)
+            .reversed().thenComparingInt(x -> x);
 
     /**
      * Create a new graph with the given data.
+     * 
      * @param numNodes
      * @param numEdges
      */
@@ -152,6 +153,10 @@ public class Graph implements Serializable {
         }
 
         return mappedNode;
+    }
+
+    public Integer getInternalNode(int originalNode) {
+        return this.mappedNodes.get(originalNode);
     }
 
     /**

@@ -49,9 +49,8 @@ public class ICModel extends MonteCarlo {
                 //Get random list of values [0,1]
                 for (int cnt = 0; cnt < graph.degreeOutOf(node); cnt += 1) {
                     int count = graph.getAdjacentsOut(node).get(cnt);
-                    if (tmbSolution.isDeactivated(count)) continue;
-
                     double v = rand.nextDouble();
+                    if (tmbSolution.isDeactivated(count)) continue;
                     if (v <= this.p) {
                         if (!A[count]) {
                             A[count] = true;

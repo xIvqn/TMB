@@ -27,11 +27,16 @@ public class RandomUtils {
         random.setSeed(seed);
     }
 
+    public static void resetSeed() {
+        random.setSeed(SEED);
+    }
+
     public static MersenneTwister getNew(long seed) {
         int seedInt = Math.toIntExact(seed);
 
         if (seed < cache.length && ArgsUtils.isCacheRandom()) {
             if (cache[seedInt] == null) cache[seedInt] = new MersenneTwister(seed);
+            else cache[seedInt].setSeed(seed);
             return cache[seedInt];
         } else return new MersenneTwister(seed);
     }

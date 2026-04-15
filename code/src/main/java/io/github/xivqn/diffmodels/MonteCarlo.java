@@ -58,6 +58,7 @@ public abstract class MonteCarlo implements DiffusionModel {
     }
 
     public void evaluateSequential(TMBSolution tmbSolution, int simulations) {
+        RandomUtils.resetSeed();
         double sum = 0;
         for (int i = 0; i < simulations; i++) {
             int cnt_new_active = 0;
@@ -72,7 +73,7 @@ public abstract class MonteCarlo implements DiffusionModel {
                 cnt_new_active += 1;
                 countAddsA += 1;
             }
-            countAddsA = calculateTotalActivation(tmbSolution, cnt_new_active, countAddsA, i);
+            countAddsA = calculateTotalActivation(tmbSolution, i, cnt_new_active, countAddsA);
             sum += countAddsA;
         }
         this.spread = sum / (double) simulations;
@@ -85,7 +86,6 @@ public abstract class MonteCarlo implements DiffusionModel {
 
         for (int i = 0; i < simulations; i++) {
             var cnt = i;
-            var rnd = RandomUtils.getNew(i);
             futures.add(executor.submit(() -> singleEvaluation(instance, tmbSolution, cnt)));
         }
 
@@ -129,7 +129,7 @@ public abstract class MonteCarlo implements DiffusionModel {
                 instance.getGraph()
         );
 
-        return countAddsA - tmbSolution.getSources().length;
+        return countAddsA  - tmbSolution.getSources().length;
     }
 
     protected abstract int calculateTotalActivation(TMBSolution tmbSolution, int id, int cnt_new_active, int countAddsA);

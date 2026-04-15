@@ -69,7 +69,9 @@ public class GRASPSolver implements Solver {
 
             // Construct solution
             while (currentSpread > targetSpread) {
-                if (alpha == -1.0) localAlpha = RandomUtils.getRandom().nextDouble();
+                if (iterations == 1) localAlpha = 0.0;
+                else if (alpha == -1.0) localAlpha = RandomUtils.getRandom().nextDouble();
+                else localAlpha = alpha;
 
                 int gMax = instance.getGraph().degreeOutOf(localCandidates.get(0));
                 int gMin = instance.getGraph().degreeOutOf(localCandidates.get(localCandidates.size() - 1));

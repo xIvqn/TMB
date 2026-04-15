@@ -57,17 +57,16 @@ public class CsvExporter implements Exporter {
         
         try (FileWriter csvWriter = new FileWriter(path)) {
             csvWriter.append("Name");
-            csvWriter.append(",");
+            csvWriter.append(";");
             csvWriter.append("Objective Value");
-            csvWriter.append(",");
+            csvWriter.append(";");
             csvWriter.append("Selection Size");
-            csvWriter.append(",");
+            csvWriter.append(";");
             csvWriter.append("Execution Time (s)");
-            csvWriter.append(",");
+            csvWriter.append(";");
             csvWriter.append("Execution Time");
-            csvWriter.append(",");
             if (ArgsUtils.isExportNodes()) {
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append("Chosen Nodes");
             }
             csvWriter.append("\n");
@@ -87,16 +86,16 @@ public class CsvExporter implements Exporter {
     public void exportSolution(Solution solution) throws ExportException {
         try (FileWriter csvWriter = new FileWriter(path, true)) {
             csvWriter.append(solution.getName());
-            csvWriter.append(",");
-            csvWriter.append(String.valueOf(solution.getOf()));
-            csvWriter.append(",");
+            csvWriter.append(";");
+            csvWriter.append(String.format("%.2f", solution.getOf()));
+            csvWriter.append(";");
             csvWriter.append(String.valueOf(solution.getSelectionSize()));
-            csvWriter.append(",");
-            csvWriter.append(String.valueOf(solution.getExecutionTime() / 1000.0));
-            csvWriter.append(",");
+            csvWriter.append(";");
+            csvWriter.append(String.format("%.2f", solution.getExecutionTime() / 1000.0));
+            csvWriter.append(";");
             csvWriter.append(TimeUtils.formatTime(solution.getExecutionTime()));
             if (ArgsUtils.isExportNodes()) {
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(solution.getSelection().stream().map(Object::toString).collect(Collectors.joining(" ")));
             }
             csvWriter.append("\n");
